@@ -1,15 +1,15 @@
 <template>
   <nav
-    class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-blue-900"
+    class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gray-900"
   >
     <div
-      class="container flex flex-wrap items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      class="container flex flex-wrap items-center justify-between max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
     >
       <div
         class="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start"
       >
         <a
-          class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap text-white italic"
+          class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap text-white font-serif"
           href="/"
         >
           politikfails.de
@@ -30,7 +30,7 @@
           <li class="nav-item">
             <a
               class="px-3 py-2 flex items-center text-xs font-bold leading-snug text-white hover:opacity-75"
-              href="#pablo"
+              href="/about"
             >
               <i
                 class="fab fa-twitter text-lg leading-lg text-white opacity-75"
