@@ -6,7 +6,7 @@ class PoliticianSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Politician
-        fields = ("id", "name", "parties", "image")
+        fields = ("id", "name", "party", "image")
         depth = 1
 
 class PoliticianInPartySerializer(serializers.ModelSerializer):
@@ -26,7 +26,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class PartySerializer(serializers.ModelSerializer):
     
-    politiker = PoliticianInPartySerializer(many=True, read_only=True)
+    politicians = PoliticianInPartySerializer(many=True, read_only=True)
 
     class Meta:
         model = Party

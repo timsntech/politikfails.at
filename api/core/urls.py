@@ -4,9 +4,9 @@ from .views import SnippetViewSet, PoliticianViewSet, CategoryViewSet, PartyView
 
 router = DefaultRouter()
 router.register(r'snippets', SnippetViewSet)
-router.register(r'politiker', PoliticianViewSet)
-router.register(r'partei', PartyViewSet)
-router.register(r'kategorie', CategoryViewSet)
+router.register(r'politicians', PoliticianViewSet)
+router.register(r'parties', PartyViewSet)
+router.register(r'categories', CategoryViewSet)
 
 urlpatterns = [
     path("", include(router.urls))
