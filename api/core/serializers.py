@@ -38,5 +38,5 @@ class SnippetSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Snippet
-        fields = ("id", "name", "description", "image", "category", "parties", "sources", "date", "politicians")
+        fields = ("id", "name", "description", "image", "image_credits", "category", "parties", "sources", "date", "politicians")
         depth = 2
