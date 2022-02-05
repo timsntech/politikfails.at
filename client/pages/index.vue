@@ -9,36 +9,39 @@
         <input
           type="text"
           v-model="search"
-          placeholder="Suche Skandal ..."
-          class="searchbar mb-4 border-2 py-2 h-full w-full border-gray-400 px-2 transition-all rounded-md"
+          placeholder="Textsuche ..."
+          class="searchbar text-searchbar mb-4 py-2 h-full w-full px-2 transition-all rounded-lg border-2"
         />
 
         <div class="grid grid-cols-3 gap-4 w-full">
           <multiselect
-            class="searchbar border-2 border-gray-400 rounded-lg w-full"
+            class="searchbar rounded-lg w-full border-2"
             v-model="categoryValue"
             :options="categories"
             label="name" 
             track-by="name"
             :multiple="true"
+            :searchable="false"
             placeholder="Kategorie"
             select-label=">"
           ></multiselect>
           <multiselect
-            class="searchbar border-2 border-gray-400 rounded-lg w-full"
+            class="searchbar  rounded-lg w-full border-2"
             v-model="partyValue"
             :options="parties"
             :multiple="true"
+            :searchable="false"
             label="name" 
             track-by="name"
             placeholder="Partei"
             select-label=">"
           ></multiselect>
           <multiselect
-            class="searchbar border-2 border-gray-400 rounded-lg w-full"
+            class="searchbar  rounded-lg w-full border-2"
             v-model="yearValue"
             :options="years"
             :multiple="true"
+            :searchable="false"
             placeholder="Jahr"
             select-label=">"
           ></multiselect>
@@ -178,10 +181,31 @@ export default {
   background-color: #f6f6f6;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23b0b0b0' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 }
-.searchbar {
-  box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.05);
-}
+
 .search-container {
   background-color: #ffffff;
 }
+
+.text-searchbar {
+  padding: 14px 10px;
+}
+
+.multiselect__tag {
+  background: #f1f1f1;
+  border: 2px solid #111;
+  color: #111;
+}
+.multiselect__tag-icon:focus, .multiselect__tag-icon:hover {
+  background: #111;
+  border-radius: 0px;
+}
+.multiselect__option--highlight {
+  background: #ddd;
+  color: #111;
+}
+.multiselect__tags {
+  padding: 11px 40px 0 8px;
+  border: 0px;
+}
+
 </style>
