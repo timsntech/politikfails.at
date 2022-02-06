@@ -5,27 +5,27 @@
     <div class="card-body">
       <div class="grid grid-cols-3 gap-4">
         <div class="">
-          <img :src=snippet.image class="rounded-md m-0">
+          <img :src="snippet.image" class="rounded-md m-0" />
           <p class="text-gray-500">© {{ snippet.image_credits }}</p>
         </div>
-      <div class="col-span-2">
-        <h5 class="text-3xl font-bold border-b-2 border-gray-200 pb-4 mb-4">
-        {{ snippet.name }}
-      </h5>
+        <div class="col-span-2">
+          <h5 class="text-3xl font-bold border-b-2 border-gray-200 pb-4 mb-4">
+            {{ snippet.name }}
+          </h5>
+        </div>
       </div>
-      </div>
-      
 
       <div class="flex justify-between w-full">
         <div class="flex flex-col justify-center items-start">
           <strong class="pb-2 pt-2">Tags:</strong>
           <div class="flex flex-row">
             <template v-for="category in snippet.category">
-            <div
-                class="p-2 border-2 border-white font-bold bg-gray-100 border-gray-700 rounded-md flex justify-center items-center mr-2"
+              <div
+                :key="category.id"
+                class="p-2 border-2 font-bold bg-gray-100 border-gray-700 rounded-md flex justify-center items-center mr-2"
                 :class="category.name"
-                v-bind:key="category"
-                >{{ category.name }}
+              >
+                {{ category.name }}
               </div>
             </template>
           </div>
@@ -33,25 +33,17 @@
         <div class="flex flex-col justify-center items-start">
           <strong class="pb-2">Involvierte Parteien:</strong>
           <div class="flex flex-row">
-        <template v-for="parties in snippet.parties">
-            <p
-            v-bind:key="parties"
-            class="
-              border-2
-              py-2
-              px-6
-              mr-2
-              rounded-md
-              inline-block
-              "
-            :class="parties.name"
+            <template v-for="parties in snippet.parties">
+              <p
+                :key="parties.id"
+                class="border-2 py-2 px-6 mr-2 rounded-md inline-block"
+                :class="parties.name"
               >
-          {{ parties.name }}
-          </p>
-          </template>
+                {{ parties.name }}
+              </p>
+            </template>
           </div>
         </div>
-        
       </div>
 
       <p class="card-text mb-4 pt-6">
@@ -60,12 +52,12 @@
 
       <div class="flex flex-col p-4 border-2 border-gray-300 rounded-lg mt-4">
         <strong>Referenzen & Quellen</strong>
-        <template v-for="snippet in snippet.sources">
+        <template v-for="snippetsource in snippet.sources">
           <a
-            :href="snippet"
+            :key="snippetsource.id"
+            :href="snippetsource"
             target="_blank"
             class="p-2 border-2 border-white hover:font-bold hover:bg-gray-100 hover:border-gray-200 rounded-md"
-            v-bind:key="snippet"
             >{{ snippet }}</a
           >
         </template>
@@ -76,14 +68,19 @@
 
 <script>
 export default {
-  props: ["snippet"],
+  props: {
+    snippet: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
       showMenu: false,
       isActive: true,
-      hasError: false
+      hasError: false,
     };
-  }
+  },
 };
 </script>
 
@@ -93,21 +90,20 @@ export default {
   box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.05);
 }
 
-
 .ÖVP {
-  background: #63C3D0;
+  background: #63c3d0;
   border-color: #549da7;
 }
 .Bündnis90 {
-  background: #a7eec3;  
+  background: #a7eec3;
   border-color: #70b48c;
 }
 .SPÖ {
-  background: #f1c3bd;  
+  background: #f1c3bd;
   border-color: #b96b6b;
 }
 .FPÖ {
-  background: #a5b4f5;  
+  background: #a5b4f5;
   border-color: #3f5ab3;
 }
 

@@ -1,3 +1,5 @@
+/* eslint-disable vue/no-v-for-template-key */ /* eslint-disable
+vue/no-v-for-template-key */
 <template>
   <div
     class="card snippet-card border-2 border-gray-300 p-4 rounded-lg bg-white"
@@ -5,81 +7,82 @@
     <div class="card-body">
       <div class="">
         <div class="">
-          <div class="snippet-image w-full" v-bind:style="{ backgroundImage: 'url(' + snippet.image + ')' }"></div>
+          <div
+            class="snippet-image w-full"
+            :style="{ backgroundImage: 'url(' + snippet.image + ')' }"
+          ></div>
 
-<div class="flex justify-between w-full py-2 category-container">
-        <div class="flex flex-col items-start">
-          <div class="flex flex-row flex-wrap">
-            <template v-for="category in snippet.category">
-            <div
-                class="border-2 font-bold bg-gray-100 border-gray-500 rounded-md flex mr-2 px-2 my-1 text-sm"
-                :class="category.name"
-                v-bind:key="category"
-                >{{ category.name }}
+          <div class="flex justify-between w-full py-2 category-container">
+            <div class="flex flex-col items-start">
+              <div class="flex flex-row flex-wrap">
+                <template v-for="category in snippet.category">
+                  <div
+                    :key="category.id"
+                    class="border-2 font-bold bg-gray-100 border-gray-500 rounded-md flex mr-2 px-2 my-1 text-sm"
+                    :class="category.name"
+                  >
+                    {{ category.name }}
+                  </div>
+                </template>
               </div>
-            </template>
+            </div>
+            <div class="flex flex-col items-start">
+              <div class="flex flex-row flex-wrap flex-row-reverse">
+                <template v-for="parties in snippet.parties">
+                  <p
+                    :key="parties.id"
+                    class="border-2 px-2 mr-2 my-1 rounded-md inline-block text-sm"
+                    :class="parties.name"
+                  >
+                    {{ parties.name }}
+                  </p>
+                </template>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="flex flex-col items-start">
-          <div class="flex flex-row flex-wrap flex-row-reverse">
-        <template v-for="parties in snippet.parties">
-            <p
-            v-bind:key="parties"
-            class="
-              border-2
-              px-2
-              mr-2
-              my-1
-              rounded-md
-              inline-block text-sm
-              "
-            :class="parties.name"
-              >
-          {{ parties.name }}
-          </p>
-          </template>
-          </div>
-        </div>
-      </div>
 
           <!-- <p class="text-gray-500 text-xs">Bild: © {{ snippet.image_credits }}</p> -->
         </div>
-            <div class="">
-                <h5 class="text-md font-bold snippet-card-small-title">
-                {{ snippet.name }}
-            </h5>
-            </div>
+        <div class="">
+          <h5 class="text-md font-bold snippet-card-small-title">
+            {{ snippet.name }}
+          </h5>
+        </div>
       </div>
 
-<div class="flex justify-between items-center">
-    <div class="">
-        {{ snippet.date }}
-    </div>
-    <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-md group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800">
-  <span class="relative px-4 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-      Details  
-  </span>
-</button>
-</div>
-
-
-
-   
-
+      <div class="flex justify-between items-center">
+        <div class="">
+          {{ snippet.date }}
+        </div>
+        <button
+          class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-md group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800"
+        >
+          <span
+            class="relative px-4 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
+          >
+            Details
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["snippet"],
+  props: {
+    snippet: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
       showMenu: false,
       isActive: true,
-      hasError: false
+      hasError: false,
     };
-  }
+  },
 };
 </script>
 
@@ -89,38 +92,38 @@ export default {
   box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.05);
 }
 .snippet-image {
-    background-position: center;
-    background-size: cover;
-    border-radius: 0.5rem;
-    padding: 4rem 1rem;
+  background-position: center;
+  background-size: cover;
+  border-radius: 0.5rem;
+  padding: 4rem 1rem;
 }
 
 .snippet-card-small-title {
-    min-height: 5rem;
+  min-height: 5rem;
 }
 @media screen and (min-width: 768px) {
-    .category-container {
-    min-height:80px;
-    }
-    .snippet-card-small-title {
+  .category-container {
+    min-height: 80px;
+  }
+  .snippet-card-small-title {
     min-height: 6.5rem;
-}
+  }
 }
 
 .ÖVP {
-  background: #63C3D0;
+  background: #63c3d0;
   border-color: #549da7;
 }
 .Bündnis90 {
-  background: #a7eec3;  
+  background: #a7eec3;
   border-color: #70b48c;
 }
 .SPÖ {
-  background: #f1c3bd;  
+  background: #f1c3bd;
   border-color: #b96b6b;
 }
 .FPÖ {
-  background: #a5b4f5;  
+  background: #a5b4f5;
   border-color: #3f5ab3;
 }
 
