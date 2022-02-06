@@ -2,18 +2,23 @@
   <main>
     <Navbar />
     <HeroSection />
-    <div class="search-container ">
+    
+
+    <div class="snippet-container border-t-2 border-gray-300 pb-8">
+
+      <div class="search-container ">
       <div
-        class="container flex flex-wrap items-center justify-between max-w-4xl mx-auto pt-8 pb-14 px-14"
+        class="container flex flex-wrap items-center justify-between max-w-7xl mx-auto py-8  px-4 sm:px-6 lg:px-8"
       >
-        <input
+        
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-2 gap-4 w-full">
+          <input
           type="text"
           v-model="search"
           placeholder="Textsuche ..."
-          class="searchbar text-searchbar mb-4 py-2 h-full w-full px-2 transition-all rounded-lg border-2"
+          class="searchbar text-searchbar mb-4 w-full px-2 transition-all rounded-lg border-2"
         />
-
-        <div class="grid grid-cols-3 gap-4 w-full">
           <multiselect
             class="searchbar rounded-lg w-full border-2"
             v-model="categoryValue"
@@ -49,17 +54,27 @@
       </div>
     </div>
 
-    <div class="snippet-container border-t-2 border-gray-300">
+
       <div
         class="flex flex-wrap items-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
-        <div class="-mt-24">
-          <div class="p-6"></div>
-          <template v-for="snippet in !filteredList ? snippets : filteredList">
+        <div class="">          
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-3 max-w-7xl gap-2 ">
+               <template v-for="snippet in !filteredList ? snippets : filteredList">
+                  <div :key="snippet.id" class="">
+                    <snippet-card-small :snippet="snippet" />
+                  </div>
+                </template>
+          </div>
+
+         
+
+
+          <!-- <template v-for="snippet in !filteredList ? snippets : filteredList">
             <div :key="snippet.id" class="">
               <snippet-card :snippet="snippet" />
             </div>
-          </template>
+          </template> -->
         </div>
       </div>
     </div>
@@ -69,6 +84,7 @@
 <script>
 import Vue from "vue";
 import SnippetCard from "~/components/SnippetCard.vue";
+import SnippetCardSmall from "~/components/SnippetCardSmall.vue";
 import Multiselect from "vue-multiselect";
 Vue.component("multiselect", Multiselect);
 
@@ -182,12 +198,14 @@ export default {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23b0b0b0' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 }
 
-.search-container {
-  background-color: #ffffff;
+.searchbar {
+  border:2px solid #ddd;
+  background-color: #fff;
 }
 
 .text-searchbar {
   padding: 14px 10px;
+  margin:0;
 }
 
 .multiselect__tag {
@@ -204,8 +222,11 @@ export default {
   color: #111;
 }
 .multiselect__tags {
-  padding: 11px 40px 0 8px;
+  padding: 4px 10px;
   border: 0px;
+  padding-top: 10px;
 }
-
+.multiselect__placeholder {
+  padding-top:10px;
+}
 </style>
