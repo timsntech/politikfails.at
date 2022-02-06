@@ -1,7 +1,10 @@
 <template>
   <div
     class="w-full bg-cover bg-center border-b-2 border-gray-300"
-    style="height:14rem;  background-image: url(https://images.unsplash.com/photo-1591862682910-eec7e143f0e1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80);"
+    style="
+      height: 14rem;
+      background-image: url(https://images.unsplash.com/photo-1591862682910-eec7e143f0e1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80);
+    "
   >
     <div
       class="flex items-center justify-center h-full w-full bg-white bg-opacity-80"
