@@ -18,7 +18,7 @@ vue/no-v-for-template-key */
                 <template v-for="category in snippet.category">
                   <div
                     :key="category.id"
-                    class="border-2 font-bold bg-gray-100 border-gray-500 rounded-md flex mr-2 px-2 my-1 text-sm"
+                    class="border-2 bg-gray-100 border-gray-500 rounded-md flex mr-2 px-2 my-1 text-xs py-1"
                     :class="category.name"
                   >
                     {{ category.name }}
@@ -31,7 +31,7 @@ vue/no-v-for-template-key */
                 <template v-for="parties in snippet.parties">
                   <p
                     :key="parties.id"
-                    class="border-2 px-2 mr-2 my-1 rounded-md inline-block text-sm"
+                    class="border-2 px-2 mr-2 my-1 rounded-md inline-block text-xs py-1"
                     :class="parties.name"
                   >
                     {{ parties.name }}
@@ -50,7 +50,7 @@ vue/no-v-for-template-key */
         </div>
       </div>
 
-      <div class="flex justify-between items-center">
+      <div class="flex justify-between items-center mt-4">
         <div class="">
           {{ snippet.date }}
         </div>

@@ -3,7 +3,7 @@
     <Navbar />
     <HeroSection />
 
-    <div class="snippet-container border-t-2 border-gray-300 pb-8">
+    <div class="snippet-container pb-8">
       <div class="search-container">
         <div
           class="container flex flex-wrap items-center justify-between max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8"
@@ -65,6 +65,21 @@
               <SnippetCardSmall :key="snippet.id" :snippet="snippet" />
             </template>
           </div>
+          <div v-if="filteredList.length === 0">
+            <div class="p-2">
+              <div
+                class="flex-col sm:flex-row inline-flex items-center bg-white leading-none text-purple-600 rounded-md p-8 py-8 my-12 shadow text-teal text-sm"
+              >
+                <span
+                  class="inline-flex bg-indigo-600 text-white rounded-full h-6 px-3 mb-4 sm:m-2 justify-center items-center"
+                  >No Content</span
+                >
+                <span class="inline-flex px-2 text-gray-900"
+                  >Für die gewählte Auswahl ist (noch) nichts verfügbar 😉
+                </span>
+              </div>
+            </div>
+          </div>
 
           <!-- <template v-for="snippet in !filteredList ? snippets : filteredList">
             <div :key="snippet.id" class="">
@@ -74,6 +89,7 @@
         </div>
       </div>
     </div>
+    <Footer />
   </main>
 </template>
 
@@ -246,6 +262,9 @@ export default {
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 
 <style>
+#__nuxt {
+  font-family: "Open Sans", sans-serif;
+}
 .snippet-container {
   background-color: #f6f6f6;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23b0b0b0' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
@@ -285,5 +304,8 @@ export default {
 }
 .multiselect__select {
   top: 6px;
+}
+.multiselect--active {
+  border: 2px solid #111;
 }
 </style>
