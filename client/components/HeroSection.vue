@@ -14,7 +14,7 @@
         >
           <span class="font-bold">#PolitikFails</span>
           <br />
-          Sortiert und zusammengefasst.
+          <span class="text-xs md:text-xl">Sortiert und zusammengefasst.</span>
           <br />
         </h1>
         <!-- <p class="text-md text-black mb-4">

@@ -2,7 +2,7 @@
 vue/no-v-for-template-key */
 <template>
   <div
-    class="card snippet-card border-2 border-gray-300 p-4 rounded-lg bg-white"
+    class="card snippet-card border-2 border-gray-200 p-4 rounded-lg bg-white"
   >
     <div class="card-body">
       <div class="">
